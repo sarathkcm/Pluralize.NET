@@ -15,7 +15,7 @@ namespace Pluralize.NET.Tests
         [Test]
         public void TestMethod()
         {
-            var input = Resources.InputData.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            var input = Resources.InputData.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var line in input)
             {
                 var singular = line.Split(',')[0];
