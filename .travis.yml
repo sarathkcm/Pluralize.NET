@@ -1,2 +1,7 @@
 language: csharp
 solution: Pluralize.sln
+install:
+  - nuget restore Pluralize.sln
+  - nuget install NUnit.Runners -Version 3.6.1 -OutputDirectory testrunner
+script:
+  - mono ./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll

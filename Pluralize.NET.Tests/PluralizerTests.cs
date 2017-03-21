@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using Pluralize;
 using System;
 using System.Collections.Generic;
@@ -7,12 +7,12 @@ using System.Text;
 
 namespace Pluralize.NET.Tests
 {
-    [Microsoft.VisualStudio.TestTools.UnitTesting.TestClass]
+    [TestFixture]
     public class PluralizerTests
     {
         Pluralizer _pluralizer = new Pluralizer();
 
-        [TestMethod]
+        [Test]
         public void TestMethod()
         {
             var input = Resources.InputData.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
