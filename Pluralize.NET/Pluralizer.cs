@@ -59,7 +59,11 @@ namespace Pluralize
                 // If the rule passes, return the replacement.
                 if (rule.Key.IsMatch(originalWord))
                 {
-                    return  RestoreCase(originalWord, rule.Key.Replace(originalWord, rule.Value,1));
+                    var match = rule.Key.Match(originalWord).Groups[0].Value;
+                    if(string.IsNullOrWhiteSpace(match))
+                        return RestoreCase(originalWord, rule.Key.Replace(originalWord, rule.Value, 1));
+                    //return rule.Key.Replace(rule.Value, (m)=>"",1);
+                    return RestoreCase(match, rule.Key.Replace(originalWord, rule.Value,1));
                 }
             }
 

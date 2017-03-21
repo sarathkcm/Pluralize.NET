@@ -66,7 +66,7 @@ namespace Pluralize.Rules
         public static Dictionary<string, string> GetIrregularPlurals()
         {
             var result = new Dictionary<string, string>();
-            foreach (var item in dictionary)
+            foreach (var item in dictionary.Reverse())
             {
                 if (!result.ContainsKey(item.Value)) result.Add(item.Value, item.Key);
             }
