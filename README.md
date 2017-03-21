@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/sarathkcm/Pluralize.NET.svg?branch=master)](https://travis-ci.org/sarathkcm/Pluralize.NET)
 # What is it?
 This is a C# port of Blake Embrey's [pluralize](https://github.com/blakeembrey/pluralize) library which helps in pluralizing and singularize any English word.
 # Why
