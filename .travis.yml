@@ -7,5 +7,5 @@ install:
   - nuget install OpenCover -Version 4.6.519 -OutputDirectory opencover
 script:
   - xbuild /p:Configuration=Release Pluralize.sln
-  - mono "./opencover/OpenCover.4.6.519/tools/OpenCover.Console.exe" -target:"./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe" -targetargs:"./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll" -register:user filters:"+[Pluralize.NET]*-[Pluralize.NET.Tests]*" -output:"./CodeCoverageResult.xml"
+  - mono "./opencover/OpenCover.4.6.519/tools/OpenCover.Console.exe" -target:"./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe" -targetargs:"./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll" -register:user filter:"+[Pluralize.NET]*-[Pluralize.NET.Tests]*" -output:"./CodeCoverageResult.xml"
   - mono "./coveralls/coveralls.net.0.7.0/tools/csmacnz.Coveralls.exe" --opencover -i ./CodeCoverageResult.xml
