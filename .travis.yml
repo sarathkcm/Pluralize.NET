@@ -3,27 +3,28 @@ solution: Pluralize.sln
 install:
   - nuget restore Pluralize.sln
   - nuget install NUnit.Runners -Version 3.6.1 -OutputDirectory testrunner
-  - nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
-  - sudo apt-get install gtk-sharp2
-  - curl -sS https://api.nuget.org/packages/mono.cecil.0.9.5.4.nupkg > /tmp/mono.cecil.0.9.5.4.nupkg.zip
-  - unzip /tmp/mono.cecil.0.9.5.4.nupkg.zip -d /tmp/cecil
-  - cp /tmp/cecil/lib/net40/Mono.Cecil.dll .
-  - cp /tmp/cecil/lib/net40/Mono.Cecil.dll /tmp/cecil/
-  - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../csMACnz/monocov
-  - cd ../../csMACnz/monocov
-  - cp /tmp/cecil/Mono.Cecil.dll .
-  - ./configure
-  - make
-  - sudo make install
-  - ls
-  - ls ..
-  - cd ../../sarathkcm/Pluralize.NET
-  - pwd
+  # - nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
+  # - sudo apt-get install gtk-sharp2
+  # - curl -sS https://api.nuget.org/packages/mono.cecil.0.9.5.4.nupkg > /tmp/mono.cecil.0.9.5.4.nupkg.zip
+  # - unzip /tmp/mono.cecil.0.9.5.4.nupkg.zip -d /tmp/cecil
+  # - cp /tmp/cecil/lib/net40/Mono.Cecil.dll .
+  # - cp /tmp/cecil/lib/net40/Mono.Cecil.dll /tmp/cecil/
+  # - git clone --depth=50 git://github.com/csMACnz/monocov.git ../../csMACnz/monocov
+  # - cd ../../csMACnz/monocov
+  # - cp /tmp/cecil/Mono.Cecil.dll .
+  # - ./configure
+  # - make
+  # - sudo make install
+  # - ls
+  # - ls ..
+  # - cd ../../sarathkcm/Pluralize.NET
+  # - pwd
 script:
   - xbuild /p:Configuration=Release Pluralize.sln
-  - export LD_LIBRARY_PATH=/usr/local/lib
-  - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+[Pluralize.NET],-[Pluralize.NET.Tests] ./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe --process=Single ./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll
-  - monocov --export-xml=monocovCoverage monocovCoverage.cov
-  - cat monocovCoverage.cov
-  #- mono "./opencover/OpenCover.4.6.519/tools/OpenCover.Console.exe" -target:\"./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe\" -targetargs:\"./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll\"  -output:\"./Cov.xml\" -log:verbose
-  - mono "./coveralls/coveralls.net.0.7.0/tools/csmacnz.Coveralls.exe" --monocov -i ./monocovCoverage
+  - mono ./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll
+  # - export LD_LIBRARY_PATH=/usr/local/lib
+  # - mono --debug --profile=monocov:outfile=monocovCoverage.cov,+[Pluralize.NET]-[Pluralize.NET.Tests] ./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe --process=Single ./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll
+  # - monocov --export-xml=monocovCoverage monocovCoverage.cov
+  # - cat monocovCoverage.cov
+  # #- mono "./opencover/OpenCover.4.6.519/tools/OpenCover.Console.exe" -target:\"./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe\" -targetargs:\"./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll\"  -output:\"./Cov.xml\" -log:verbose
+  # - mono "./coveralls/coveralls.net.0.7.0/tools/csmacnz.Coveralls.exe" --monocov -i ./monocovCoverage
