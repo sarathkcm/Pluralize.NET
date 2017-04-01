@@ -14,6 +14,7 @@ namespace Pluralize
         private readonly List<string> _uncountables = Uncountables.GetUncountables();
         private readonly Dictionary<string, string> _irregularPlurals = IrregularRules.GetIrregularPlurals();
         private readonly Dictionary<string, string> _irregularSingles = IrregularRules.GetIrregularSingulars();
+        private readonly Regex replacementRegex = new Regex("\\$(\\d{1,2})");
 
         public string Pluralize(string word)
         {
@@ -52,22 +53,33 @@ namespace Pluralize
             var length = rules.Count;
 
             // Iterate over the sanitization rules and use the first one to match.
-            while (length-->0)
+            while (length-- > 0)
             {
                 var rule = rules.ElementAt(length);
 
                 // If the rule passes, return the replacement.
                 if (rule.Key.IsMatch(originalWord))
                 {
-                    var match = rule.Key.Match(originalWord).Groups[0].Value;
-                    if(string.IsNullOrWhiteSpace(match))
-                        return RestoreCase(originalWord, rule.Key.Replace(originalWord, rule.Value, 1));
-                    //return rule.Key.Replace(rule.Value, (m)=>"",1);
-                    return RestoreCase(match, rule.Key.Replace(originalWord, rule.Value,1));
+                    var match = rule.Key.Match(originalWord);
+                    var matchString = match.Groups[0].Value;
+                    //if(string.IsNullOrWhiteSpace(match))
+                    //    return RestoreCase(originalWord, rule.Key.Replace(originalWord, rule.Value, 1));
+                    //return RestoreCase(match, rule.Key.Replace(originalWord, rule.Value,1));
+                    if (string.IsNullOrWhiteSpace(matchString))
+                        return rule.Key.Replace(originalWord, GetReplaceMethod(originalWord[match.Index-1].ToString(), rule.Value), 1);
+                    return rule.Key.Replace(originalWord, GetReplaceMethod(matchString, rule.Value), 1);
                 }
             }
 
             return originalWord;
+        }
+
+        private MatchEvaluator GetReplaceMethod(string originalWord, string replacement)
+        {
+            return match =>
+            {
+                return RestoreCase(originalWord, replacementRegex.Replace(replacement, m=> match.Groups[Convert.ToInt32(m.Groups[1].Value)].Value));
+            };
         }
 
         internal string Transform(string word, Dictionary<string, string> replacables, Dictionary<string, string> keepables, Dictionary<Regex, string> rules)

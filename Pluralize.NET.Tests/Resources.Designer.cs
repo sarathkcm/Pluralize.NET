@@ -103,5 +103,35 @@ namespace Pluralize.NET.Tests {
                 return ResourceManager.GetString("InputData", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dingo,dingos
+        ///mango,mangoes
+        ///echo,echos
+        ///ghetto,ghettoes
+        ///nucleus,nucleuses
+        ///bureau,bureaux
+        ///seraph,seraphs.
+        /// </summary>
+        internal static string PluralToSingularExceptions {
+            get {
+                return ResourceManager.GetString("PluralToSingularExceptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dingo,dingos
+        ///mango,mangoes
+        ///echo,echos
+        ///ghetto,ghettoes
+        ///nucleus,nucleuses
+        ///bureau,bureaux
+        ///seraph,seraphs.
+        /// </summary>
+        internal static string SingularToPluralExceptions {
+            get {
+                return ResourceManager.GetString("SingularToPluralExceptions", resourceCulture);
+            }
+        }
     }
 }
