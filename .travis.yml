@@ -16,6 +16,7 @@ install:
   - make
   - sudo make install
   - cd 
+  - cd ./sarathkcm/Pluralize.NET
   - pwd
 script:
   - xbuild /p:Configuration=Release Pluralize.sln
