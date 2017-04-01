@@ -62,9 +62,6 @@ namespace Pluralize
                 {
                     var match = rule.Key.Match(originalWord);
                     var matchString = match.Groups[0].Value;
-                    //if(string.IsNullOrWhiteSpace(match))
-                    //    return RestoreCase(originalWord, rule.Key.Replace(originalWord, rule.Value, 1));
-                    //return RestoreCase(match, rule.Key.Replace(originalWord, rule.Value,1));
                     if (string.IsNullOrWhiteSpace(matchString))
                         return rule.Key.Replace(originalWord, GetReplaceMethod(originalWord[match.Index-1].ToString(), rule.Value), 1);
                     return rule.Key.Replace(originalWord, GetReplaceMethod(matchString, rule.Value), 1);
