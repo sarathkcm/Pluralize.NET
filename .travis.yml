@@ -3,6 +3,9 @@ solution: Pluralize.sln
 install:
   - nuget restore Pluralize.sln
   - nuget install NUnit.Runners -Version 3.6.1 -OutputDirectory testrunner
+  - nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
+  - nuget install install-Package OpenCover -Version 4.6.519 -OutputDirectory opencover
 script:
   - xbuild /p:Configuration=Release Pluralize.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll
+  - mono ./opencover/OpenCover.4.6.519/OpenCover.Console.exe -target:"./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe" -targetargs:"/nologo ./Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll /noshadow" -register:user -filter:+[Pluralize.NET]* -output:"./CodeCoverageResult.xml"
+  - mono ./coveralls.net.0.7.0/tools/csmacnz.coveralls.exe --opencover -i ./CodeCoverageResult.xml
