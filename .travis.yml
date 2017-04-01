@@ -15,7 +15,7 @@ install:
   - ./configure
   - make
   - sudo make install
-  - cd ../..
+  - cd 
 script:
   - xbuild /p:Configuration=Release Pluralize.sln
   - export LD_LIBRARY_PATH=/usr/local/lib
