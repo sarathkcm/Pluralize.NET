@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/sarathkcm/Pluralize.NET.svg?branch=master)](https://travis-ci.org/sarathkcm/Pluralize.NET)
+[![Build Status](https://travis-ci.org/sarathkcm/Pluralize.NET.svg?branch=master)](https://travis-ci.org/sarathkcm/Pluralize.NET)  [![NuGet version](https://badge.fury.io/nu/pluralize.net.svg)](https://www.nuget.org/packages/pluralize.net)
 # What is it?
 This is a C# port of Blake Embrey's [pluralize](https://github.com/blakeembrey/pluralize) library which helps in pluralizing and singularize any English word.
 # Why
