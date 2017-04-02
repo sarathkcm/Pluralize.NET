@@ -1,11 +1,10 @@
-﻿using Pluralize.Rules;
+﻿using Pluralize.NET.Rules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Pluralize
+namespace Pluralize.NET
 {
     public class Pluralizer
     {

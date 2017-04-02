@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="InputData.csv" />
+    <None Include="packages.config" />
     <None Include="SingularToPluralExceptions.csv" />
     <None Include="PluralToSingularExceptions.csv" />
   </ItemGroup>

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace Pluralize.Rules
+namespace Pluralize.NET.Rules
 {
     internal static class PluralRules
     {
