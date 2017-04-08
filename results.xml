@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CoverageSession xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Summary numSequencePoints="0" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="0" minCyclomaticComplexity="0" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="0" />
+  <Modules>
+    <Module skippedDueTo="Filter" hash="7F-4E-EA-3B-6F-54-D3-91-5E-FE-62-68-9E-42-98-12-3C-7D-D8-12">
+      <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_64\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll</ModulePath>
+      <ModuleTime>2016-07-16T11:43:57.1242712Z</ModuleTime>
+      <ModuleName>mscorlib</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="70-0A-8C-00-26-D7-8E-3A-41-3C-43-6D-01-3C-09-CC-C9-73-85-C0">
+      <ModulePath>G:\My Works\cSharp\Pluralize\testrunner\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe</ModulePath>
+      <ModuleTime>2017-03-06T13:57:00Z</ModuleTime>
+      <ModuleName>nunit3-console</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="2F-06-CB-9E-45-EB-3F-7A-7A-0E-09-BA-75-25-0C-EF-AA-90-8E-2B">
+      <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</ModulePath>
+      <ModuleTime>2016-07-16T11:43:55.5461496Z</ModuleTime>
+      <ModuleName>System</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="90-A5-CB-F1-B1-A1-C2-DE-2A-BF-0B-6F-28-E9-82-CA-41-44-09-3A">
+      <ModulePath>G:\My Works\cSharp\Pluralize\testrunner\NUnit.ConsoleRunner.3.6.1\tools\nunit.engine.api.dll</ModulePath>
+      <ModuleTime>2017-03-06T13:57:00Z</ModuleTime>
+      <ModuleName>nunit.engine.api</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="96-DE-EF-3F-02-DC-0C-37-07-3E-B9-1D-D2-EF-F9-A2-D3-8E-11-00">
+      <ModulePath>G:\My Works\cSharp\Pluralize\testrunner\NUnit.ConsoleRunner.3.6.1\tools\nunit.engine.dll</ModulePath>
+      <ModuleTime>2017-03-06T13:57:00Z</ModuleTime>
+      <ModuleName>nunit.engine</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="96-DE-EF-3F-02-DC-0C-37-07-3E-B9-1D-D2-EF-F9-A2-D3-8E-11-00">
+      <ModulePath>G:\My Works\cSharp\Pluralize\testrunner\NUnit.ConsoleRunner.3.6.1\tools\nunit.engine.dll</ModulePath>
+      <ModuleTime>2017-03-06T13:57:00Z</ModuleTime>
+      <ModuleName>nunit.engine</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="88-45-F0-9C-3C-9F-72-79-CB-6A-82-FA-D7-DB-C3-4A-59-80-3C-6B">
+      <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Xml\v4.0_4.0.0.0__b77a5c561934e089\System.Xml.dll</ModulePath>
+      <ModuleTime>2016-07-16T11:43:55.4992744Z</ModuleTime>
+      <ModuleName>System.Xml</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="55-AD-EE-D1-1C-53-49-75-E3-88-58-79-CF-B4-C2-5D-9B-C6-56-C1">
+      <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_64\System.Web\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Web.dll</ModulePath>
+      <ModuleTime>2016-07-16T11:43:59.421142Z</ModuleTime>
+      <ModuleName>System.Web</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="8A-2E-8F-D6-9D-39-02-4A-2F-30-FC-06-42-F7-0F-A8-32-69-07-72">
+      <ModulePath>G:\My Works\cSharp\Pluralize\testrunner\NUnit.ConsoleRunner.3.6.1\tools\Mono.Cecil.dll</ModulePath>
+      <ModuleTime>2017-03-06T13:57:00Z</ModuleTime>
+      <ModuleName>Mono.Cecil</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="A6-44-D7-5C-2C-AA-24-6D-2E-64-A4-48-13-C2-22-F5-E4-2D-CE-96">
+      <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Remoting\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll</ModulePath>
+      <ModuleTime>2016-07-16T11:43:55.4680251Z</ModuleTime>
+      <ModuleName>System.Runtime.Remoting</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="34-A3-5D-67-8E-E7-DB-60-FE-97-F3-BD-D4-E7-40-6B-00-DA-51-C8">
+      <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Configuration\v4.0_4.0.0.0__b03f5f7f11d50a3a\System.Configuration.dll</ModulePath>
+      <ModuleTime>2016-07-16T11:43:53.9992781Z</ModuleTime>
+      <ModuleName>System.Configuration</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="7F-4E-EA-3B-6F-54-D3-91-5E-FE-62-68-9E-42-98-12-3C-7D-D8-12">
+      <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_64\mscorlib\v4.0_4.0.0.0__b77a5c561934e089\mscorlib.dll</ModulePath>
+      <ModuleTime>2016-07-16T11:43:57.1242712Z</ModuleTime>
+      <ModuleName>mscorlib</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="75-5F-1A-C1-0E-E6-C9-A3-EC-A1-F0-6E-89-B4-98-86-0B-A8-B2-AD">
+      <ModulePath>G:\My Works\cSharp\Pluralize\testrunner\NUnit.ConsoleRunner.3.6.1\tools\nunit-agent.exe</ModulePath>
+      <ModuleTime>2017-03-06T13:57:00Z</ModuleTime>
+      <ModuleName>nunit-agent</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="96-DE-EF-3F-02-DC-0C-37-07-3E-B9-1D-D2-EF-F9-A2-D3-8E-11-00">
+      <ModulePath>G:\My Works\cSharp\Pluralize\testrunner\NUnit.ConsoleRunner.3.6.1\tools\nunit.engine.dll</ModulePath>
+      <ModuleTime>2017-03-06T13:57:00Z</ModuleTime>
+      <ModuleName>nunit.engine</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="MissingPdb" hash="90-A5-CB-F1-B1-A1-C2-DE-2A-BF-0B-6F-28-E9-82-CA-41-44-09-3A">
+      <ModulePath>G:\My Works\cSharp\Pluralize\testrunner\NUnit.ConsoleRunner.3.6.1\tools\nunit.engine.api.dll</ModulePath>
+      <ModuleTime>2017-03-06T13:57:00Z</ModuleTime>
+      <ModuleName>nunit.engine.api</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="2F-06-CB-9E-45-EB-3F-7A-7A-0E-09-BA-75-25-0C-EF-AA-90-8E-2B">
+      <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll</ModulePath>
+      <ModuleTime>2016-07-16T11:43:55.5461496Z</ModuleTime>
+      <ModuleName>System</ModuleName>
+      <Classes />
+    </Module>
+    <Module skippedDueTo="Filter" hash="A6-44-D7-5C-2C-AA-24-6D-2E-64-A4-48-13-C2-22-F5-E4-2D-CE-96">
+      <ModulePath>C:\WINDOWS\Microsoft.Net\assembly\GAC_MSIL\System.Runtime.Remoting\v4.0_4.0.0.0__b77a5c561934e089\System.Runtime.Remoting.dll</ModulePath>
+      <ModuleTime>2016-07-16T11:43:55.4680251Z</ModuleTime>
+      <ModuleName>System.Runtime.Remoting</ModuleName>
+      <Classes />
+    </Module>
+  </Modules>
+</CoverageSession>
