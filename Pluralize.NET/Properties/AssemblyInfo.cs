@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Pluralize.NET")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Pluralize or singularize any word. C# Port of Blake Embrey's pluralize library for Javascript. Visit https://github.com/sarathkcm/Pluralize.NET for details on how to use.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Pluralize")]
