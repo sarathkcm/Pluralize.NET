@@ -10,7 +10,7 @@ assembly_info:
 before_build:
   - nuget restore Pluralize.sln
   - nuget install NUnit.Runners -Version 3.6.1 -OutputDirectory testrunner
-  - nuget install OpenCover -Version4.6.519 -OutputDirectory opencover
+  - nuget install OpenCover -Version 4.6.519 -OutputDirectory opencover
   - nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
 build:
   project: Pluralize.sln
