@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/orkh8wfdq6rk3pyo?svg=true)](https://ci.appveyor.com/project/sarathkcm/pluralize-net)  [![NuGet version](https://badge.fury.io/nu/pluralize.net.svg)](https://www.nuget.org/packages/pluralize.net)   [![Coverage Status](https://coveralls.io/repos/github/sarathkcm/Pluralize.NET/badge.svg?branch=master)](https://coveralls.io/github/sarathkcm/Pluralize.NET?branch=master)
+[![Build status](https://ci.appveyor.com/api/projects/status/orkh8wfdq6rk3pyo?svg=true)](https://ci.appveyor.com/project/sarathkcm/pluralize-net)  [![Coverage Status](https://coveralls.io/repos/github/sarathkcm/Pluralize.NET/badge.svg?branch=master)](https://coveralls.io/github/sarathkcm/Pluralize.NET?branch=master)   [![NuGet version](https://badge.fury.io/nu/pluralize.net.svg)](https://www.nuget.org/packages/pluralize.net)
 # What is it?
 This is a C# port of Blake Embrey's [pluralize](https://github.com/blakeembrey/pluralize) library which helps in pluralizing and singularize any English word.
 # Why
