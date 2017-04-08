@@ -6,6 +6,9 @@ assembly_info:
   assembly_version: '{version}'
   assembly_file_version: '{version}'
   assembly_informational_version: '{version}'
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: gfm7eO6dUGqGDv0kKTWdKoZoszQn74nsDOThJEwQeDD3ObNcXfKju+wlmWpyJkWn
 nuget:
   project_feed: true
 before_build:
@@ -28,3 +31,11 @@ test_script:
 artifacts:
 - path: opencoverCoverage.xml
   name: Unit Tests Coverage
+deploy:
+- provider: NuGet
+  api_key:
+    secure: nX03R2P3AgPMkimuIhkItV/+OzSdECgRJvIJ2m4j1u+hYWyCsPp+4Xh7+x08dUyL
+  skip_symbols: true
+  artifact: /.*\.nupkg/
+  on:
+    APPVEYOR_REPO_TAG: true
