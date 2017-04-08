@@ -31,11 +31,22 @@ test_script:
 artifacts:
 - path: opencoverCoverage.xml
   name: Unit Tests Coverage
+- path: Pluralize.NET/bin/Release/Pluralize.NET.dll
+  name: DLL
 deploy:
 - provider: NuGet
   api_key:
     secure: nX03R2P3AgPMkimuIhkItV/+OzSdECgRJvIJ2m4j1u+hYWyCsPp+4Xh7+x08dUyL
   skip_symbols: true
   artifact: /.*\.nupkg/
+  on:
+    APPVEYOR_REPO_TAG: true
+- provider: GitHub
+  release: Pluralize.NET v$(appveyor_build_version)
+  description: $(APPVEYOR_REPO_COMMIT_MESSAGE)\n\nDownload the latest Pluralize.NET.dll file and add it to your Project references.\n\nOR\n\nInstall from NuGet via package manager console by running:\n\n```Install-Package Pluralize.NET -Version $(appveyor_build_version)\n\n```\nOR install the latest version by running:\n```\nInstall-Package Pluralize.NET\n```
+  auth_token:
+    secure: bmd3VXFi5vf+gUn96rmWpE3NtP8Cvdf3BhWcOe/cUH+MXrP+M66NSKsQH8NTPl+a
+  artifact: DLL
+  force_update: true
   on:
     APPVEYOR_REPO_TAG: true
