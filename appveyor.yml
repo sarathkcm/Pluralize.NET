@@ -16,7 +16,7 @@ build:
   project: Pluralize.sln
   verbosity: minimal
 test_script:
-- ps: > |
+- ps: > |+
      $nunitrunner = (Resolve-Path "testrunner/NUnit.Runners.*/tools/nunit3-console.exe").ToString()
      $opencover = (Resolve-Path "opencover/OpenCover.*/tools/csmacnz.coveralls.exe").ToString()
      $coveralls = (Resolve-Path "coveralls/coveralls.net.*/tools/OpenCover.Console.exe").ToString()
