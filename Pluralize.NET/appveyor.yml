@@ -1,0 +1,29 @@
+version: 1.0.{build}
+skip_tags: true
+configuration: Release
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+before_build:
+  - nuget restore Pluralize.sln
+  - nuget install NUnit.Runners -Version 3.6.1 -OutputDirectory testrunner
+  - nuget install OpenCover -Version4.6.519 -OutputDirectory opencover
+  - nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
+build:
+  project: Pluralize.sln
+  verbosity: minimal
+test_script:
+- ps: >-
+    
+    $nunitrunner = (Resolve-Path "testrunner/NUnit.Runners.*/tools/nunit3-console.exe").ToString()
+    $opencover = (Resolve-Path "opencover/OpenCover.*/tools/csmacnz.coveralls.exe").ToString()
+    $coveralls = (Resolve-Path "coveralls/coveralls.net.*/tools/OpenCover.Console.exe").ToString()
+    & $opencover -register:user -target:$nunitrunner "-targetargs:""Pluralize.NET.Tests\bin\Release\Pluralize.NET.Tests.dll"" /noshadow" -filter:"+[Pluralize.NET*]*" -output:opencoverCoverage.xml
+    
+    
+    $env:APPVEYOR_BUILD_NUMBER
+    
+    & $coveralls --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --useRelativePaths --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_BUILD_NUMBER --serviceName appveyor
