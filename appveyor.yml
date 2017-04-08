@@ -46,5 +46,6 @@ deploy:
     secure: bmd3VXFi5vf+gUn96rmWpE3NtP8Cvdf3BhWcOe/cUH+MXrP+M66NSKsQH8NTPl+a
   artifact: DLL
   force_update: true
+  tag: v$(appveyor_build_version)
   on:
     APPVEYOR_REPO_TAG: true
