@@ -1,0 +1,66 @@
+version: 0.1.{build}
+configuration: Release
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+skip_commits:
+  message: /\[AssemblyVersion AutoUpdate\]/
+environment:
+  COVERALLS_REPO_TOKEN:
+    secure: gfm7eO6dUGqGDv0kKTWdKoZoszQn74nsDOThJEwQeDD3ObNcXfKju+wlmWpyJkWn
+  GITHUB_ACCESS_TOKEN:
+    secure: bmd3VXFi5vf+gUn96rmWpE3NtP8Cvdf3BhWcOe/cUH+MXrP+M66NSKsQH8NTPl+a
+nuget:
+  project_feed: true
+before_build:
+- nuget restore Pluralize.sln
+- nuget install NUnit.Runners -Version 3.6.1 -OutputDirectory testrunner
+- nuget install OpenCover -Version 4.6.519 -OutputDirectory opencover
+- nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
+build:
+  project: Pluralize.sln
+  publish_nuget: true
+  verbosity: minimal
+test_script:
+- ps: |
+     $nunitrunner = "./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe"
+     $opencover = "./opencover/OpenCover.4.6.519/tools/OpenCover.Console.exe" 
+     $coveralls = "./coveralls/coveralls.net.0.7.0/tools/csmacnz.coveralls.exe"
+     & $opencover -register:user -target:$nunitrunner -targetargs:"Pluralize.NET.Tests/bin/Release/Pluralize.NET.Tests.dll"  -filter:"+[Pluralize.NET*]*-[Pluralize.NET.Tests*]*" -output:opencoverCoverage.xml -returntargetcode
+     if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)  }
+     $env:APPVEYOR_BUILD_NUMBER
+     & $coveralls --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --useRelativePaths --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_BUILD_NUMBER --serviceName appveyor
+artifacts:
+- path: Pluralize.NET/bin/Release/Pluralize.NET.dll
+  name: DLL
+deploy:
+- provider: NuGet
+  api_key:
+    secure: nX03R2P3AgPMkimuIhkItV/+OzSdECgRJvIJ2m4j1u+hYWyCsPp+4Xh7+x08dUyL
+  skip_symbols: true
+  artifact: /.*\.nupkg/
+  on:
+    APPVEYOR_REPO_TAG: true
+- provider: GitHub
+  release: Pluralize.NET v$(appveyor_build_version)
+  description: Download the latest Pluralize.NET.dll file and add it to your Project references.\n\nOR\n\nInstall from NuGet via package manager console by running:\n\n```\nInstall-Package Pluralize.NET -Version $(appveyor_build_version)\n```\nOR install the latest version by running:\n```\nInstall-Package Pluralize.NET\n```
+  auth_token:
+    secure: bmd3VXFi5vf+gUn96rmWpE3NtP8Cvdf3BhWcOe/cUH+MXrP+M66NSKsQH8NTPl+a
+  artifact: DLL
+  force_update: true
+  tag: v$(appveyor_build_version)
+  on:
+    APPVEYOR_REPO_TAG: true
+on_success:
+  - git config --global credential.helper store
+  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:GITHUB_ACCESS_TOKEN):x-oauth-basic@github.com`n"
+  - git config --global user.email "sarathkcm@gmail.com"
+  - git config --global user.name "sarathkcm"
+  - git stash
+  - git checkout master
+  - git stash pop
+  - git commit  -m "[AssemblyVersion AutoUpdate]" Pluralize.NET/Properties/AssemblyInfo.cs
+  - git push
