@@ -10,11 +10,11 @@ Install-Package Pluralize.NET
 ```
 
 **Include using directive**
-```
+```C#
 using Pluralize.NET
 ```
 **Write code**
-```
+```C#
 var singular = new Pluralizer().Singularize("Horses");
 var plural = new Pluralizer().Pluralize("Horse");
 ```
