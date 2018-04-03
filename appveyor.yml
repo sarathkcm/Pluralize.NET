@@ -27,7 +27,7 @@ test_script:
      $nunitrunner = "./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe"
      $opencover = "./opencover/OpenCover.4.6.519/tools/OpenCover.Console.exe" 
      $coveralls = "./coveralls/coveralls.net.0.7.0/tools/csmacnz.coveralls.exe"
-     & $opencover -register:user -target:$nunitrunner -targetargs:"Pluralize.NET.Tests/bin/Release/netstandard2.0/Pluralize.NET.Tests.dll"  -filter:"+[Pluralize.NET*]*-[Pluralize.NET.Tests*]*" -output:opencoverCoverage.xml -returntargetcode
+     & $opencover -register:user -target:$nunitrunner -targetargs:"Pluralize.NET.Tests/bin/Release/net461/Pluralize.NET.Tests.dll"  -filter:"+[Pluralize.NET*]*-[Pluralize.NET.Tests*]*" -output:opencoverCoverage.xml -returntargetcode
      if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)  }
      $env:APPVEYOR_BUILD_NUMBER
      & $coveralls --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --useRelativePaths --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_BUILD_NUMBER --serviceName appveyor
