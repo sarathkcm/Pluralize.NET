@@ -20,10 +20,8 @@ before_build:
 - nuget install NUnit.Runners -Version 3.6.1 -OutputDirectory testrunner
 - nuget install OpenCover -Version 4.6.519 -OutputDirectory opencover
 - nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
-build:
-  project: Pluralize.NET.sln
-  publish_nuget: true
-  verbosity: minimal
+build_script:
+  - cmd: dotnet build Pluralize.NET.sln --configuration Release
 test_script:
 - ps: |
      $nunitrunner = "./testrunner/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe"
