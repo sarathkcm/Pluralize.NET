@@ -3,7 +3,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup> 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard1.1;netstandard2.0;net40;net45;;net46;net461</TargetFrameworks>
   </PropertyGroup>
 
 </Project>

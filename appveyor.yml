@@ -16,12 +16,12 @@ environment:
 nuget:
   project_feed: true
 before_build:
-- nuget restore Pluralize.sln
+- dotnet restore Pluralize.NET.sln
 - nuget install NUnit.Runners -Version 3.6.1 -OutputDirectory testrunner
 - nuget install OpenCover -Version 4.6.519 -OutputDirectory opencover
 - nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
 build:
-  project: Pluralize.sln
+  project: Pluralize.NET.sln
   publish_nuget: true
   verbosity: minimal
 test_script:
@@ -34,8 +34,8 @@ test_script:
      $env:APPVEYOR_BUILD_NUMBER
      & $coveralls --opencover -i opencoverCoverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --useRelativePaths --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_BUILD_NUMBER --serviceName appveyor
 artifacts:
-- path: Pluralize.NET/bin/Release/Pluralize.NET.dll
-  name: DLL
+- path: Pluralize.NET/bin/Release/*
+  name: Binaries
 deploy:
 - provider: NuGet
   api_key:
@@ -49,7 +49,7 @@ deploy:
   description: Download the latest Pluralize.NET.dll file and add it to your Project references.\n\nOR\n\nInstall from NuGet via package manager console by running:\n\n```\nInstall-Package Pluralize.NET -Version $(appveyor_build_version)\n```\nOR install the latest version by running:\n```\nInstall-Package Pluralize.NET\n```
   auth_token:
     secure: bmd3VXFi5vf+gUn96rmWpE3NtP8Cvdf3BhWcOe/cUH+MXrP+M66NSKsQH8NTPl+a
-  artifact: DLL
+  artifact: Binaries
   force_update: true
   tag: v$(appveyor_build_version)
   on:
