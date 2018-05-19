@@ -52,7 +52,7 @@ on_success:
   - git config --global user.email "sarathkcm@gmail.com"
   - git config --global user.name "sarathkcm"
   - git stash
-  - git checkout master
+  - git checkout $env:APPVEYOR_REPO_BRANCH
   - git stash pop
   - git commit  -m "[AssemblyVersion AutoUpdate]" Pluralize.NET/Properties/AssemblyInfo.cs
   - git push
