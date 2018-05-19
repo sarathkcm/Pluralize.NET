@@ -36,7 +36,7 @@ artifacts:
 deploy:
 - provider: NuGet
   api_key:
-    secure: nX03R2P3AgPMkimuIhkItV/+OzSdECgRJvIJ2m4j1u+hYWyCsPp+4Xh7+x08dUyL
+    secure: RgZ7EvTWMKF+562faMo1IcYH2j+aIkROWx1ekVLoHGpFOmhQ92rye85p6iErhXuE
   skip_symbols: true
   artifact: NugetPackageFile
   on:
@@ -57,7 +57,7 @@ on_success:
   - git config --global user.email "sarathkcm@gmail.com"
   - git config --global user.name "sarathkcm"
   - git stash
-  - git checkout %APPVEYOR_REPO_BRANCH%
+  - git checkout master
   - git stash pop
   - git commit  -m "[AssemblyVersion AutoUpdate]" Pluralize.NET/Pluralize.NET.csproj
   - git push
