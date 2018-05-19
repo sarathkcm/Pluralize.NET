@@ -40,7 +40,7 @@ deploy:
     APPVEYOR_REPO_TAG: true
 - provider: GitHub
   release: Pluralize.NET v$(appveyor_build_version)
-  description: Download the latest Pluralize.NET.dll file and add it to your Project references.\n\nOR\n\nInstall from NuGet via package manager console by running:\n\n```\nInstall-Package Pluralize.NET -Version $(appveyor_build_version)\n```\nOR install the latest version by running:\n```\nInstall-Package Pluralize.NET\n```
+  description: Download Pluralize.NET.dll file for the desired target platform and add it to Project references.\n\nOR\n\nInstall from NuGet via package manager console by running:\n\n```\nInstall-Package Pluralize.NET -Version $(appveyor_build_version)\n```\nOR\n\nInstall using dotnet CLI by running:\n\n```\ndotnet add package Pluralize.NET --version $(appveyor_build_version)\n```\n\nOR\n\nInstall using Paket CLI by running:\n\n```\npaket add Pluralize.NET --version $(appveyor_build_version)\n```
   auth_token:
     secure: bmd3VXFi5vf+gUn96rmWpE3NtP8Cvdf3BhWcOe/cUH+MXrP+M66NSKsQH8NTPl+a
   artifact: Binaries
