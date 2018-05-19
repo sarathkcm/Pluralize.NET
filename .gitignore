@@ -246,3 +246,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+Pluralize.NET.Tests/coverage.xml
+.vscode
