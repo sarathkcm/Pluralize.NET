@@ -1,11 +1,13 @@
 version: 0.1.{build}
 configuration: Release
-assembly_info:
+dotnet_csproj:
   patch: true
-  file: '**\AssemblyInfo.*'
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
   assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
 skip_commits:
   message: /\[AssemblyVersion AutoUpdate\]/
 environment:
@@ -19,7 +21,7 @@ before_build:
 - dotnet restore Pluralize.NET.sln
 - nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
 build_script:
-  - cmd: dotnet build Pluralize.NET.sln --configuration Release
+  - cmd: dotnet build Pluralize.NET.sln --configuration Release /p:DebugType=None & dotnet pack Pluralize.NET
 test_script:
 - ps: |
      $coveralls = "./coveralls/coveralls.net.0.7.0/tools/csmacnz.coveralls.exe"
@@ -52,7 +54,7 @@ on_success:
   - git config --global user.email "sarathkcm@gmail.com"
   - git config --global user.name "sarathkcm"
   - git stash
-  - git checkout $env:APPVEYOR_REPO_BRANCH
+  - git checkout %APPVEYOR_REPO_BRANCH%
   - git stash pop
-  - git commit  -m "[AssemblyVersion AutoUpdate]" Pluralize.NET/Properties/AssemblyInfo.cs
+  - git commit  -m "[AssemblyVersion AutoUpdate]" Pluralize.NET/Pluralize.NET.csproj
   - git push
