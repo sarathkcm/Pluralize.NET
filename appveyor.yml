@@ -21,7 +21,7 @@ before_build:
 - dotnet restore Pluralize.NET.sln
 - nuget install coveralls.net -Version 0.7.0 -OutputDirectory coveralls
 build_script:
-  - cmd: dotnet build Pluralize.NET.sln --configuration Release /p:DebugType=None & dotnet pack Pluralize.NET
+  - cmd: dotnet build Pluralize.NET.sln --configuration Release /p:DebugType=None & dotnet pack Pluralize.NET -o NuGetPackgeOutPut
 test_script:
 - ps: |
      $coveralls = "./coveralls/coveralls.net.0.7.0/tools/csmacnz.coveralls.exe"
@@ -30,12 +30,15 @@ test_script:
 artifacts:
 - path: Pluralize.NET/bin/Release
   name: Binaries
+- path: Pluralize.NET/NuGetPackgeOutPut/*.nupkg
+  name: NugetPackageFile
+  type: NuGetPackage
 deploy:
 - provider: NuGet
   api_key:
     secure: nX03R2P3AgPMkimuIhkItV/+OzSdECgRJvIJ2m4j1u+hYWyCsPp+4Xh7+x08dUyL
   skip_symbols: true
-  artifact: /.*\.nupkg/
+  artifact: NugetPackageFile
   on:
     APPVEYOR_REPO_TAG: true
 - provider: GitHub
