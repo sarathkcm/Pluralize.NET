@@ -59,6 +59,7 @@ namespace Pluralize.NET.Rules
                 {"thief", "thieves"},
                 {"groove", "grooves"},
                 {"pickaxe", "pickaxes"},
+                {"passerby","passersby" },
                 {"whiskey", "whiskies"}
             };
 

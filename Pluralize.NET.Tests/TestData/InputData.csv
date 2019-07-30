@@ -1,4 +1,5 @@
-﻿fish,fish
+﻿firmware,firmware
+fish,fish
 media,media
 moose,moose
 police,police
@@ -19,7 +20,10 @@ wildlife,wildlife
 Staff,Staff
 STAFF,STAFF
 turquois,turquois
+turquoise,turquoises
 carnivorous,carnivorous
+only,only
+aircraft,aircraft
 veniam,veniam
 this,these
 that,those
@@ -42,6 +46,7 @@ lap,laps
 cough,coughs
 death,deaths
 coach,coaches
+boy,boys
 finger,fingers
 pen,pens
 pencil,pencils
@@ -598,3 +603,7 @@ CHICKEN,CHICKENS
 中文,中文
 اللغةالعربية,اللغةالعربية
 四chicken,四chickens
+Order2,Order2s
+Work Order2,Work Order2s
+SoundFX2,SoundFX2s
+oDonald,oDonalds

@@ -5,7 +5,7 @@ namespace Pluralize.NET.Rules
 {
     internal static class Uncountables
     {
-        public static IEnumerable<string> GetUncountables()
+        public static ICollection<string> GetUncountables()
         {
             return new HashSet<string>(StringComparer.OrdinalIgnoreCase) { 
                     // Singular words with no plurals.
@@ -13,6 +13,7 @@ namespace Pluralize.NET.Rules
                     "advice",
                     "agenda",
                     "aid",
+                    "aircraft",
                     "alcohol",
                     "ammo",
                     "anime",
@@ -40,6 +41,7 @@ namespace Pluralize.NET.Rules
                     "equipment",
                     "excretion",
                     "expertise",
+                    "firmware",
                     "flounder",
                     "fun",
                     "gallows",
@@ -67,6 +69,7 @@ namespace Pluralize.NET.Rules
                     "mud",
                     "manga",
                     "news",
+                    "only",
                     "pike",
                     "plankton",
                     "pliers",

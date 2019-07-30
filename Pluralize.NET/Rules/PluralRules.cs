@@ -41,7 +41,6 @@ namespace Pluralize.NET.Rules
                 {new Regex("(e[mn]u)s?$",RegexOptions.IgnoreCase), "$1s"},
                 {new Regex("(alias|[^aou]us|t[lm]as|gas|ris)$",RegexOptions.IgnoreCase), "$1es"},
                 {new Regex("(ax|test)is$",RegexOptions.IgnoreCase), "$1es"},
-                {new Regex("([^aeiou]ese)$",RegexOptions.IgnoreCase), "$1"},
                 {new Regex("[^\u0000-\u007F]$",RegexOptions.IgnoreCase), "$0"},
                 {new Regex("s?$",RegexOptions.IgnoreCase), "s"}
             };
