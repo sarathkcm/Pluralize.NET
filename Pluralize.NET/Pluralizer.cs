@@ -1,5 +1,4 @@
 ﻿using Pluralize.NET.Rules;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -8,12 +7,12 @@ namespace Pluralize.NET
 {
     public class Pluralizer
     {
-        private readonly Dictionary<Regex, string> _pluralRules = PluralRules.GetRules();
-        private readonly Dictionary<Regex, string> _singularRules = SingularRules.GetRules();
-        private readonly List<string> _uncountables = Uncountables.GetUncountables();
-        private readonly Dictionary<string, string> _irregularPlurals = IrregularRules.GetIrregularPlurals();
-        private readonly Dictionary<string, string> _irregularSingles = IrregularRules.GetIrregularSingulars();
-        private readonly Regex replacementRegex = new Regex("\\$(\\d{1,2})");
+        private static readonly IDictionary<Regex, string> _pluralRules = PluralRules.GetRules();
+        private static readonly IDictionary<Regex, string> _singularRules = SingularRules.GetRules();
+        private static readonly IEnumerable<string> _uncountables = Uncountables.GetUncountables();
+        private static readonly IDictionary<string, string> _irregularPlurals = IrregularRules.GetIrregularPlurals();
+        private static readonly IDictionary<string, string> _irregularSingles = IrregularRules.GetIrregularSingulars();
+        private static readonly Regex _replacementRegex = new Regex("\\$(\\d{1,2})");
 
         public string Pluralize(string word)
         {
@@ -43,26 +42,24 @@ namespace Pluralize.NET
             return newWord.ToLower();
         }
 
-        internal string ApplyRules(string token, string originalWord, Dictionary<Regex, string> rules)
+        internal string ApplyRules(string token, string originalWord, IDictionary<Regex, string> rules)
         {
             // Empty string or doesn't need fixing.
             if (string.IsNullOrEmpty(token) || _uncountables.Contains(token))
-                return RestoreCase(originalWord, token);
+                return originalWord;
 
             var length = rules.Count;
 
             // Iterate over the sanitization rules and use the first one to match.
-            while (length-- > 0)
+            foreach (KeyValuePair<Regex, string> rule in rules)
             {
-                var rule = rules.ElementAt(length);
-
                 // If the rule passes, return the replacement.
                 if (rule.Key.IsMatch(originalWord))
                 {
                     var match = rule.Key.Match(originalWord);
                     var matchString = match.Groups[0].Value;
                     if (string.IsNullOrWhiteSpace(matchString))
-                        return rule.Key.Replace(originalWord, GetReplaceMethod(originalWord[match.Index-1].ToString(), rule.Value), 1);
+                        return rule.Key.Replace(originalWord, GetReplaceMethod(originalWord[match.Index - 1].ToString(), rule.Value), 1);
                     return rule.Key.Replace(originalWord, GetReplaceMethod(matchString, rule.Value), 1);
                 }
             }
@@ -74,16 +71,16 @@ namespace Pluralize.NET
         {
             return match =>
             {
-                return RestoreCase(originalWord, replacementRegex.Replace(replacement, m=> match.Groups[Convert.ToInt32(m.Groups[1].Value)].Value));
+                return RestoreCase(originalWord, _replacementRegex.Replace(replacement, m => match.Groups[int.Parse(m.Groups[1].Value)].Value));
             };
         }
 
-        internal string Transform(string word, Dictionary<string, string> replacables, Dictionary<string, string> keepables, Dictionary<Regex, string> rules)
+        internal string Transform(string word, IDictionary<string, string> replacables,
+            IDictionary<string, string> keepables, IDictionary<Regex, string> rules)
         {
-            var token = word.ToLower();
-            if (keepables.ContainsKey(token)) return RestoreCase(word, token);
-            if (replacables.ContainsKey(token)) return RestoreCase(word, replacables[token]);
-            return ApplyRules(token, word, rules);
+            if (keepables.ContainsKey(word)) return word;
+            if (replacables.TryGetValue(word, out string token)) return RestoreCase(word, token);
+            return ApplyRules(word, word, rules);
         }
     }
 }

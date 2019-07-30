@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Pluralize.NET.Rules
 {
     internal static class IrregularRules
     {
-        private static Dictionary<string, string> dictionary = new Dictionary<string, string>
+        private static Dictionary<string, string> dictionary = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
             {
                 // Pronouns.
                 {"I", "we"},
@@ -61,17 +62,17 @@ namespace Pluralize.NET.Rules
                 {"whiskey", "whiskies"}
             };
 
-        public static Dictionary<string, string> GetIrregularPlurals()
+        public static IDictionary<string, string> GetIrregularPlurals()
         {
-            var result = new Dictionary<string, string>();
-            foreach (var item in dictionary.Reverse())
+            var result = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            foreach (KeyValuePair<string, string> item in dictionary.Reverse())
             {
                 if (!result.ContainsKey(item.Value)) result.Add(item.Value, item.Key);
             }
             return result;
         }
 
-        public static Dictionary<string, string> GetIrregularSingulars()
+        public static IDictionary<string, string> GetIrregularSingulars()
         {
             return dictionary;
         }

@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Pluralize.NET.Rules
 {
     internal static class Uncountables
     {
-        public static List<string> GetUncountables()
+        public static IEnumerable<string> GetUncountables()
         {
-            return new List<string> { 
+            return new HashSet<string>(StringComparer.OrdinalIgnoreCase) { 
                     // Singular words with no plurals.
                     "adulthood",
                     "advice",

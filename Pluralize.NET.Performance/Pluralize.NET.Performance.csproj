@@ -190,10 +190,6 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pluralize.NET.Faster\Pluralize.NET.Faster.csproj">
-      <Project>{B3381CA8-E766-4E6B-AAD5-BA0863028F3A}</Project>
-      <Name>Pluralize.NET.Faster</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Pluralize.NET\Pluralize.NET.csproj">
       <Project>{c75af07e-a1b5-4229-85bc-f47a2185a46e}</Project>
       <Name>Pluralize.NET</Name>
