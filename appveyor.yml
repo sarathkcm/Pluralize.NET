@@ -56,7 +56,7 @@ deploy:
     APPVEYOR_REPO_TAG: true
 on_success:
   - ps: | 
-          if(!$env:GITHUB_ACCESS_TOKEN) {exit 0}
+          if(!$env:GITHUB_ACCESS_TOKEN) {return}
           $env:GIT_REDIRECT_STDERR = '2>&1'
           git config --global credential.helper store
           Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:GITHUB_ACCESS_TOKEN):x-oauth-basic@github.com`n"
