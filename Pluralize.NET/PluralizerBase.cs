@@ -39,7 +39,7 @@ namespace Pluralize.NET
             var pluralized = count == 1 ?
                 Singularize(word) : Pluralize(word);
 
-            return $"{count}{(inclusive ? " " : "")}{pluralized}";
+            return (inclusive ? count + " " : "") + pluralized;
         }
 
         public void AddPluralRule(Regex rule, string replacement)
