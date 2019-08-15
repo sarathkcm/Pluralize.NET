@@ -26,7 +26,10 @@ test_script:
 - ps: |
      $coveralls = "./coveralls/coveralls.net.0.7.0/tools/csmacnz.coveralls.exe"
      dotnet test Pluralize.NET.Tests /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Threshold=80 /p:ThresholdType=line /p:Exclude="[NUnit*]*"
-     & if($COVERALLS_REPO_TOKEN) {$coveralls --opencover -i Pluralize.NET.Tests\coverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --useRelativePaths --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_BUILD_NUMBER --serviceName appveyor}
+     if($COVERALLS_REPO_TOKEN) {
+       $uploadCommand = $coveralls + " --opencover -i Pluralize.NET.Tests\coverage.xml --repoToken " + $env:COVERALLS_REPO_TOKEN + " --useRelativePaths --commitId " + $env:APPVEYOR_REPO_COMMIT + " --commitBranch " + $env:APPVEYOR_REPO_BRANCH + " --commitAuthor " + $env:APPVEYOR_REPO_COMMIT_AUTHOR + " --commitEmail " + $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL + " --commitMessage " + $env:APPVEYOR_REPO_COMMIT_MESSAGE + " --jobId " + $env:APPVEYOR_BUILD_NUMBER + "--serviceName appveyor"
+       iex "& $uploadCommand"
+     }
 artifacts:
 - path: Pluralize.NET/bin/Release
   name: Binaries
