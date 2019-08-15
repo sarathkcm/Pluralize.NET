@@ -12,7 +12,7 @@ skip_commits:
   message: /\[AssemblyVersion AutoUpdate\]/
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: gfm7eO6dUGqGDv0kKTWdKoZoszQn74nsDOThJEwQeDD3ObNcXfKju+wlmWpyJkWn
+    secure: asdq09BSCMt4t3OQ4FlIy3p40i0oSYizoJMrdxx6TXaffykL7+vWgzpTbNHls+xZ
   GITHUB_ACCESS_TOKEN:
     secure: bmd3VXFi5vf+gUn96rmWpE3NtP8Cvdf3BhWcOe/cUH+MXrP+M66NSKsQH8NTPl+a
 nuget:
@@ -39,7 +39,7 @@ artifacts:
 deploy:
 - provider: NuGet
   api_key:
-    secure: RgZ7EvTWMKF+562faMo1IcYH2j+aIkROWx1ekVLoHGpFOmhQ92rye85p6iErhXuE
+    secure: nX03R2P3AgPMkimuIhkItV/+OzSdECgRJvIJ2m4j1u+hYWyCsPp+4Xh7+x08dUyL
   skip_symbols: true
   artifact: NugetPackageFile
   on:
@@ -55,12 +55,12 @@ deploy:
   on:
     APPVEYOR_REPO_TAG: true
 on_success:
-  - git config --global credential.helper store
-  - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:GITHUB_ACCESS_TOKEN):x-oauth-basic@github.com`n"
-  - git config --global user.email "sarathkcm@gmail.com"
-  - git config --global user.name "sarathkcm"
-  - git stash
-  - git checkout master
-  - git stash pop
-  - git commit  -m "[AssemblyVersion AutoUpdate]" Pluralize.NET/Pluralize.NET.csproj
-  - git push
+  - ps: | git config --global credential.helper store
+          Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:GITHUB_ACCESS_TOKEN):x-oauth-basic@github.com`n"
+          git config --global user.email "sarathkcm@gmail.com"
+          git config --global user.name "sarathkcm"
+          git stash
+          git checkout $env:APPVEYOR_REPO_BRANCH
+          git stash pop
+          git commit  -m "[AssemblyVersion AutoUpdate]" Pluralize.NET/Pluralize.NET.csproj
+          git push
