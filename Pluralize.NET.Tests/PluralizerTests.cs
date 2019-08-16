@@ -171,7 +171,7 @@ namespace Pluralize.NET.Tests
         public void AddSingularRule_String()
         {
             const string singular = "suck";
-            const string plural = "mornings";
+            const string plural = "morNings";
 
             _pluralizer.AddSingularRule(plural, singular);
 
@@ -191,11 +191,11 @@ namespace Pluralize.NET.Tests
         [Test]
         public void AddUncountableRule_Regex()
         {
-            Assert.AreEqual("blahs", _pluralizer.Pluralize("blah"));
+            Assert.AreEqual("bLAHS", _pluralizer.Pluralize("bLAH"));
 
-            _pluralizer.AddUncountableRule(new Regex("blah"));
+            _pluralizer.AddUncountableRule(new Regex("bLAH"));
 
-            Assert.AreEqual("blah", _pluralizer.Pluralize("blah"));
+            Assert.AreEqual("bLAH", _pluralizer.Pluralize("bLAH"));
         }
 
         [Test]
@@ -206,6 +206,12 @@ namespace Pluralize.NET.Tests
             _pluralizer.AddIrregularRule("irregular", "regular");
 
             Assert.AreEqual("regular", _pluralizer.Pluralize("irregular"));
+        }
+
+        [Test]
+        public void PluralizeEmptyString_ReturnsEmptyString()
+        {
+            Assert.AreEqual(string.Empty, _pluralizer.Pluralize(string.Empty));
         }
     }
 }
