@@ -134,15 +134,68 @@ namespace Pluralize.NET.Tests
             Assert.AreEqual("0 dogs", _pluralizer.Format(word, count, true));
         }
 
-        //[Test]
-        //public void AddPluralRule_Regex()
-        //{
-        //    const string singular = "coolfast";
-        //    const string plural = "coolcar";
+        [Test]
+        public void AddPluralRule_Regex()
+        {
+            const string singular = "regex";
+            const string plural = "regexii";
 
-        //    _pluralizer.AddPluralRule(new Regex("fast"), "car");
+            _pluralizer.AddPluralRule(new Regex("gex$"), "gexii");
 
-        //    Assert.AreEqual(plural, _pluralizer.Pluralize(singular));
-        //}
+            Assert.AreEqual(plural, _pluralizer.Pluralize(singular));
+        }
+
+        [Test]
+        public void AddPluralRule_String()
+        {
+            const string singular = "person";
+            const string plural = "peeps";
+
+            _pluralizer.AddPluralRule(singular, plural);
+
+            Assert.AreEqual(plural, _pluralizer.Pluralize(singular));
+        }
+
+        [Test]
+        public void AddSingularRule_Regex()
+        {
+            const string singular = "regex";
+            const string plural = "regexii";
+
+            _pluralizer.AddSingularRule(new Regex("gexii$"), "gex");
+
+            Assert.AreEqual(singular, _pluralizer.Singularize(plural));
+        }
+
+        [Test]
+        public void AddSingularRule_String()
+        {
+            const string singular = "suck";
+            const string plural = "mornings";
+
+            _pluralizer.AddSingularRule(plural, singular);
+
+            Assert.AreEqual(singular, _pluralizer.Singularize(plural));
+        }
+
+        [Test]
+        public void AddUncountableRule()
+        {
+            Assert.AreEqual("papers", _pluralizer.Pluralize("paper"));
+
+            _pluralizer.AddUncountableRule("paper");
+
+            Assert.AreEqual("paper", _pluralizer.Pluralize("paper"));
+        }
+
+        [Test]
+        public void AddUncountableRule_Regex()
+        {
+            Assert.AreEqual("blahs", _pluralizer.Pluralize("blah"));
+
+            _pluralizer.AddUncountableRule(new Regex("blah"));
+
+            Assert.AreEqual("blah", _pluralizer.Pluralize("blah"));
+        }
     }
 }

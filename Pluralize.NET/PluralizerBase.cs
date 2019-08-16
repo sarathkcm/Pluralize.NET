@@ -6,8 +6,8 @@ namespace Pluralize.NET
 {
     public abstract class PluralizerBase : IPluralize
     {
-        protected readonly IDictionary<Regex, string> _pluralRules = PluralRules.GetRules();
-        protected readonly IDictionary<Regex, string> _singularRules = SingularRules.GetRules();
+        protected readonly IList<ReplaceRule> _pluralRules = PluralRules.GetRules();
+        protected readonly IList<ReplaceRule> _singularRules = SingularRules.GetRules();
         protected readonly ICollection<string> _uncountables = Uncountables.GetUncountables();
         protected readonly IDictionary<string, string> _irregularPlurals = IrregularRules.GetIrregularPlurals();
         protected readonly IDictionary<string, string> _irregularSingles = IrregularRules.GetIrregularSingulars();
@@ -44,24 +44,40 @@ namespace Pluralize.NET
 
         public void AddPluralRule(Regex rule, string replacement)
         {
-            _pluralRules.Add(rule, replacement);
+            _pluralRules.Add(new ReplaceRule
+            {
+                Condition = rule,
+                ReplaceWith = replacement
+            });
         }
 
         public void AddPluralRule(string rule, string replacement)
         {
             var regexRule = SanitizeRule(rule);
-            _pluralRules.Add(regexRule, replacement);
+            _pluralRules.Add(new ReplaceRule
+            {
+                Condition = regexRule,
+                ReplaceWith = replacement
+            });
         }
 
         public void AddSingularRule(Regex rule, string replacement)
         {
-            _singularRules.Add(rule, replacement);
+            _singularRules.Add(new ReplaceRule
+            {
+                Condition = rule,
+                ReplaceWith = replacement
+            });
         }
 
         public void AddSingularRule(string rule, string replacement)
         {
             var regexRule = SanitizeRule(rule);
-            _singularRules.Add(regexRule, replacement);
+            _singularRules.Add(new ReplaceRule
+            {
+                Condition = regexRule,
+                ReplaceWith = replacement
+            });
         }
 
         public void AddUncountableRule(string word)
@@ -71,8 +87,17 @@ namespace Pluralize.NET
 
         public void AddUncountableRule(Regex rule)
         {
-            _pluralRules.Add(rule, "$0");
-            _singularRules.Add(rule, "$0");
+            _pluralRules.Add(new ReplaceRule
+            {
+                Condition = rule,
+                ReplaceWith = "$0"
+            });
+
+            _singularRules.Add(new ReplaceRule
+            {
+                Condition = rule,
+                ReplaceWith = "$0"
+            });
         }
 
         public void AddIrregularRule(string single, string plural)
@@ -108,25 +133,27 @@ namespace Pluralize.NET
             return newWord.ToLower();
         }
 
-        private string ApplyRules(string token, string originalWord, IDictionary<Regex, string> rules)
+        private string ApplyRules(string token, string originalWord, IList<ReplaceRule> rules)
         {
             // Empty string or doesn't need fixing.
             if (string.IsNullOrEmpty(token) || _uncountables.Contains(token))
                 return originalWord;
 
-            var length = rules.Count;
 
             // Iterate over the sanitization rules and use the first one to match.
-            foreach (KeyValuePair<Regex, string> rule in rules)
+            // Iterate backwards since specific/custom rules can be appended
+            for (var i = rules.Count - 1; i >= 0; i--)
             {
+                var rule = rules[i];
+
                 // If the rule passes, return the replacement.
-                if (rule.Key.IsMatch(originalWord))
+                if (rule.Condition.IsMatch(originalWord))
                 {
-                    var match = rule.Key.Match(originalWord);
+                    var match = rule.Condition.Match(originalWord);
                     var matchString = match.Groups[0].Value;
                     if (string.IsNullOrWhiteSpace(matchString))
-                        return rule.Key.Replace(originalWord, GetReplaceMethod(originalWord[match.Index - 1].ToString(), rule.Value), 1);
-                    return rule.Key.Replace(originalWord, GetReplaceMethod(matchString, rule.Value), 1);
+                        return rule.Condition.Replace(originalWord, GetReplaceMethod(originalWord[match.Index - 1].ToString(), rule.ReplaceWith), 1);
+                    return rule.Condition.Replace(originalWord, GetReplaceMethod(matchString, rule.ReplaceWith), 1);
                 }
             }
 
@@ -142,7 +169,7 @@ namespace Pluralize.NET
         }
 
         private string Transform(string word, IDictionary<string, string> replacables,
-            IDictionary<string, string> keepables, IDictionary<Regex, string> rules)
+            IDictionary<string, string> keepables, IList<ReplaceRule> rules)
         {
             if (keepables.ContainsKey(word)) return word;
             if (replacables.TryGetValue(word, out string token)) return RestoreCase(word, token);
