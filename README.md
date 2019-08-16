@@ -31,8 +31,38 @@ using Pluralize.NET
 ```
 **Write code**
 ```C#
-var singular = new Pluralizer().Singularize("Horses");
-var plural = new Pluralizer().Pluralize("Horse");
+IPluralize pluralizer = new Pluralizer();
+
+pluralizer.Singularize("Horses");  //=> "Horse"
+pluralizer.Pluralize("Horse");  //=> "Horses"
+
+// Example of new plural rule:
+pluralizer.Pluralize("regex"); //=> "regexes"
+pluralizer.AddPluralRule(new Regex("gex$"), "gexii");
+pluralizer.Pluralize("regex"); //=> "regexii"
+
+// Example of new singular rule:
+pluralizer.Singularize('singles'); //=> "single"
+pluralizer.AddSingularRule(new Regex("singles"), 'singular');
+pluralizer.Singularize('singles'); //=> "singular"
+
+// Example of new irregular rule, e.g. "I" -> "we":
+pluralizer.Pluralize('irregular'); //=> "irregulars"
+pluralizer.AddIrregularRule('irregular', 'regular');
+pluralizer.Pluralize('irregular'); //=> "regular"
+
+// Example of uncountable rule (rules without singular/plural in context):
+pluralizer.Pluralize('paper'); //=> "papers"
+pluralizer.AddUncountableRule('paper');
+pluralizer.Pluralize('paper'); //=> "paper"
+
+// Example of asking whether a word looks singular or plural:
+pluralizer.IsPlural('test'); //=> false
+pluralizer.IsSingular('test'); //=> true
+
+// Example of formatting a word based on count
+pluralizer.Format(5, "dog"); // => "dogs"
+pluralizer.Format(5, "dog", inclusive: true); // => "5 dogs"
 ```
 
 **Profit!**
