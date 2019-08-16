@@ -197,5 +197,15 @@ namespace Pluralize.NET.Tests
 
             Assert.AreEqual("blah", _pluralizer.Pluralize("blah"));
         }
+
+        [Test]
+        public void AddIrregularRule()
+        {
+            Assert.AreEqual("irregulars", _pluralizer.Pluralize("irregular"));
+
+            _pluralizer.AddIrregularRule("irregular", "regular");
+
+            Assert.AreEqual("regular", _pluralizer.Pluralize("irregular"));
+        }
     }
 }
