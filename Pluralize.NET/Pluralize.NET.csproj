@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <PackageVersion>1.0.1</PackageVersion>
+    <PackageVersion>1.0.2</PackageVersion>
     <PackageId>Pluralize.NET</PackageId>
     <Title>Pluralize.NET</Title>
     <Authors>Sarath KCM</Authors>
@@ -15,9 +15,15 @@
     <IncludeSource>false</IncludeSource>
     <RepositoryUrl>https://github.com/sarathkcm/Pluralize.NET</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+<<<<<<< Updated upstream
     <Version>1.0.1</Version>
     <AssemblyVersion>1.0.1</AssemblyVersion>
     <FileVersion>1.0.1</FileVersion>
+=======
+    <Version>1.0.2</Version>
+    <AssemblyVersion>1.0.2</AssemblyVersion>
+    <FileVersion>1.0.2</FileVersion>
+>>>>>>> Stashed changes
   </PropertyGroup>
   <PropertyGroup>
     <TargetFrameworks>net40;netstandard1.1;net451;net46;netstandard2.0</TargetFrameworks>
