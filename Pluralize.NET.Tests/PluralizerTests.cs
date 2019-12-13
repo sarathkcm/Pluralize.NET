@@ -23,10 +23,11 @@ namespace Pluralize.NET.Tests
             {
                 var singular = line.Split(',')[0];
                 var plural = line.Split(',')[1];
-                Assert.AreEqual(plural, _pluralizer.Pluralize(singular));
-                Assert.AreEqual(plural, _pluralizer.Pluralize(plural));
-                Assert.AreEqual(singular, _pluralizer.Singularize(plural));
-                Assert.AreEqual(singular, _pluralizer.Singularize(singular));
+
+                Assert.AreEqual(plural, _pluralizer.Pluralize(singular), "Failed to pluralize {0}", singular);
+                Assert.AreEqual(plural, _pluralizer.Pluralize(plural), "Failed to pluralize {0}", plural);
+                Assert.AreEqual(singular, _pluralizer.Singularize(plural), "Failed to singularize {0}", plural);
+                Assert.AreEqual(singular, _pluralizer.Singularize(singular), "Failed to singularize {0}", singular);
             }
         }
 
@@ -64,7 +65,7 @@ namespace Pluralize.NET.Tests
             {
                 var singular = line.Split(',')[0];
 
-                Assert.IsTrue(_pluralizer.IsSingular(singular));
+                Assert.IsTrue(_pluralizer.IsSingular(singular), "Expected {0} to be singular", singular);
             }
         }
 
@@ -76,7 +77,7 @@ namespace Pluralize.NET.Tests
             {
                 var plural = line.Split(',')[1];
 
-                Assert.IsTrue(_pluralizer.IsPlural(plural));
+                Assert.IsTrue(_pluralizer.IsPlural(plural), "Expected {0} to be plural", plural);
             }
         }
 

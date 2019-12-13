@@ -85,7 +85,7 @@ namespace Pluralize.NET.Rules
                 "sewage",
                 "shambles",
                 "shrimp",
-                "species",
+                "software",
                 "staff",
                 "swine",
                 "tennis",
