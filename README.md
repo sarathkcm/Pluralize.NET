@@ -91,9 +91,9 @@ The Nuget package supports the following .NET versions. This pretty much covers 
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/sarathkcm"><img src="https://avatars0.githubusercontent.com/u/14143311?v=4" width="100px;" alt=""/><br /><sub><b>Sarath Kumar CM</b></sub></a><br /><a href="https://github.com/Sarath KCM/Pluralize.NET/commits?author=sarathkcm" title="Code">💻</a></td>
-    <td align="center"><a href="https://www.linkedin.com/in/daniel-destouche/"><img src="https://avatars3.githubusercontent.com/u/2773690?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Destouche</b></sub></a><br /><a href="https://github.com/Sarath KCM/Pluralize.NET/commits?author=ghost1face" title="Code">💻</a></td>
-    <td align="center"><a href="https://sorashi.github.io"><img src="https://avatars0.githubusercontent.com/u/6270283?v=4" width="100px;" alt=""/><br /><sub><b>Dennis Pražák</b></sub></a><br /><a href="https://github.com/Sarath KCM/Pluralize.NET/commits?author=sorashi" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/sarathkcm"><img src="https://avatars0.githubusercontent.com/u/14143311?v=4" width="100px;" alt=""/><br /><sub><b>Sarath Kumar CM</b></sub></a><br /><a href="https://github.com/sarathkcm/Pluralize.NET/commits?author=sarathkcm" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/daniel-destouche/"><img src="https://avatars3.githubusercontent.com/u/2773690?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Destouche</b></sub></a><br /><a href="https://github.com/sarathkcm/Pluralize.NET/commits?author=ghost1face" title="Code">💻</a></td>
+    <td align="center"><a href="https://sorashi.github.io"><img src="https://avatars0.githubusercontent.com/u/6270283?v=4" width="100px;" alt=""/><br /><sub><b>Dennis Pražák</b></sub></a><br /><a href="https://github.com/sarathkcm/Pluralize.NET/commits?author=sorashi" title="Code">💻</a></td>
   </tr>
 </table>
 
