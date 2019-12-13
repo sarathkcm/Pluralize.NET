@@ -15,8 +15,7 @@ namespace Pluralize.NET.Rules
                 new ReplaceRule { Condition = new Regex("(wi|kni|(?:after|half|high|low|mid|non|night|[^\\w]|^)li)ves$", RegexOptions.IgnoreCase), ReplaceWith = "$1fe"},
                 new ReplaceRule { Condition = new Regex("(ar|(?:wo|[ae])l|[eo][ao])ves$", RegexOptions.IgnoreCase), ReplaceWith = "$1f"},
                 new ReplaceRule { Condition = new Regex("ies$", RegexOptions.IgnoreCase), ReplaceWith ="y"},
-                new ReplaceRule { Condition = new Regex("(dg|ss|ois|lk|ok|wn|mb|th|ch|ec|oal|is|ec|ck|ix|sser|ts|wb)ies$", RegexOptions.IgnoreCase), ReplaceWith = "$1ie" },
-                new ReplaceRule { Condition = new Regex("\\b(l|(?:neck|cross|hog|aun)?t|coll|faer|food|gen|goon|group|hipp|junk|vegg|(?:pork)?p|charl|calor|cut)ies$", RegexOptions.IgnoreCase), ReplaceWith = "$1ie" },
+                new ReplaceRule { Condition = new Regex("\\b([pl]|zomb|(?:neck|cross)?t|coll|faer|food|gen|goon|group|lass|talk|goal|cut)ies$", RegexOptions.IgnoreCase), ReplaceWith = "$1ie" },
                 new ReplaceRule { Condition = new Regex("\\b(mon|smil)ies$", RegexOptions.IgnoreCase), ReplaceWith = "$1ey"},
                 new ReplaceRule { Condition = new Regex("\\b((?:tit)?m|l)ice$", RegexOptions.IgnoreCase), ReplaceWith = "$1ouse"},
                 new ReplaceRule { Condition = new Regex("(seraph|cherub)im$", RegexOptions.IgnoreCase), ReplaceWith = "$1"},
@@ -38,9 +37,9 @@ namespace Pluralize.NET.Rules
                 new ReplaceRule { Condition = new Regex("[^aeiou]ese$", RegexOptions.IgnoreCase), ReplaceWith = "$0"},
                 new ReplaceRule { Condition = new Regex("deer$", RegexOptions.IgnoreCase), ReplaceWith = "$0"},
                 new ReplaceRule { Condition = new Regex("fish$", RegexOptions.IgnoreCase), ReplaceWith = "$0"},
-                new ReplaceRule { Condition = new Regex("measles$/", RegexOptions.IgnoreCase),   ReplaceWith = "$0"},
-                new ReplaceRule { Condition = new Regex("o[iu]s$", RegexOptions.IgnoreCase),     ReplaceWith = "$0"},
-                new ReplaceRule { Condition = new Regex("pox$", RegexOptions.IgnoreCase),  ReplaceWith = "$0"},
+                new ReplaceRule { Condition = new Regex("measles$", RegexOptions.IgnoreCase), ReplaceWith = "$0"},
+                new ReplaceRule { Condition = new Regex("o[iu]s$", RegexOptions.IgnoreCase), ReplaceWith = "$0"},
+                new ReplaceRule { Condition = new Regex("pox$", RegexOptions.IgnoreCase), ReplaceWith = "$0"},
                 new ReplaceRule { Condition = new Regex("sheep$", RegexOptions.IgnoreCase), ReplaceWith = "$0" }
             };
         }
