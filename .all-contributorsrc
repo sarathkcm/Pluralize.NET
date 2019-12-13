@@ -9,6 +9,34 @@
   "imageSize": 100,
   "commit": false,
   "commitConvention": "none",
-  "contributors": [],
+  "contributors": [
+    {
+      "login": "sarathkcm",
+      "name": "Sarath Kumar CM",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/14143311?v=4",
+      "profile": "https://github.com/sarathkcm",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ghost1face",
+      "name": "Daniel Destouche",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/2773690?v=4",
+      "profile": "https://www.linkedin.com/in/daniel-destouche/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "sorashi",
+      "name": "Dennis Pražák",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6270283?v=4",
+      "profile": "https://sorashi.github.io",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
   "contributorsPerLine": 7
 }
