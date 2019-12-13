@@ -1,6 +1,9 @@
 [![GitHub license](https://img.shields.io/github/license/sarathkcm/Pluralize.NET.svg)](https://github.com/sarathkcm/Pluralize.NET/blob/master/LICENCE) [![Build status](https://ci.appveyor.com/api/projects/status/orkh8wfdq6rk3pyo?svg=true)](https://ci.appveyor.com/project/sarathkcm/pluralize-net)  [![Coverage Status](https://coveralls.io/repos/github/sarathkcm/Pluralize.NET/badge.svg?branch=master&v=1)](https://coveralls.io/github/sarathkcm/Pluralize.NET?branch=master) 
 [![NuGet](https://img.shields.io/nuget/v/Pluralize.NET.svg)](https://www.nuget.org/packages/Pluralize.NET/)
 [![NuGet](https://img.shields.io/nuget/dt/Pluralize.NET.svg)](https://www.nuget.org/packages/Pluralize.NET/)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 
 # What is it?
@@ -80,3 +83,16 @@ The Nuget package supports the following .NET versions. This pretty much covers 
 
 # Licence
 [MIT](https://github.com/sarathkcm/Pluralize.NET/blob/master/LICENCE) - because the original project is MIT
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
