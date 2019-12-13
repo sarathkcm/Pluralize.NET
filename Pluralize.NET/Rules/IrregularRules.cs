@@ -60,8 +60,7 @@ namespace Pluralize.NET.Rules
                 {"groove", "grooves"},
                 {"pickaxe", "pickaxes"},
                 {"passerby","passersby" },
-                {"cookie","cookies" },
-                {"whiskey", "whiskies"}
+                {"cookie","cookies" }
             };
 
         public static IDictionary<string, string> GetIrregularPlurals()

@@ -144,7 +144,7 @@ syllabus,syllabi
 viscus,viscera
 cactus,cacti
 hippopotamus,hippopotamuses
-octopus,octopi
+octopus,octopuses
 platypus,platypuses
 kangaroo,kangaroos
 atlas,atlases
@@ -266,7 +266,6 @@ walkie-talkie,walkie-talkies
 groupie,groupies
 goonie,goonies
 lassie,lassies
-genie,genies
 foodie,foodies
 faerie,faeries
 collie,collies
@@ -435,7 +434,8 @@ donkey,donkeys
 honey,honeys
 smiley,smilies
 survey,surveys
-whiskey,whiskies
+whiskey,whiskeys
+whisky,whiskies
 volley,volleys
 tongue,tongues
 suit,suits
@@ -592,6 +592,16 @@ accomplice,accomplices
 amice,amices
 titmouse,titmice
 slice,slices
+base,bases
+database,databases
+rise,rises
+uprise,uprises
+size,sizes
+prize,prizes
+booby,boobies
+hobby,hobbies
+baby,babies
+cookie,cookies
 constructor,constructors
 randomWord,randomWords
 camelCase,camelCases
