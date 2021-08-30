@@ -15,7 +15,7 @@ namespace Pluralize.NET.Rules
                 new ReplaceRule { Condition = new Regex("(wi|kni|(?:after|half|high|low|mid|non|night|[^\\w]|^)li)ves$", RegexOptions.IgnoreCase), ReplaceWith = "$1fe"},
                 new ReplaceRule { Condition = new Regex("(ar|(?:wo|[ae])l|[eo][ao])ves$", RegexOptions.IgnoreCase), ReplaceWith = "$1f"},
                 new ReplaceRule { Condition = new Regex("ies$", RegexOptions.IgnoreCase), ReplaceWith ="y"},
-                new ReplaceRule { Condition = new Regex("\\b([pl]|zomb|(?:neck|cross)?t|coll|faer|food|gen|goon|group|lass|talk|goal|cut)ies$", RegexOptions.IgnoreCase), ReplaceWith = "$1ie" },
+                new ReplaceRule { Condition = new Regex("\\b([pl]|zomb|(?:neck|cross|hog|aun)?t|coll|faer|food|gen|goon|group|lass|talk|goal|cut|hipp|junk|vegg|(?:pork)?p|charl|calor)ies$", RegexOptions.IgnoreCase), ReplaceWith = "$1ie" },
                 new ReplaceRule { Condition = new Regex("\\b(mon|smil)ies$", RegexOptions.IgnoreCase), ReplaceWith = "$1ey"},
                 new ReplaceRule { Condition = new Regex("\\b((?:tit)?m|l)ice$", RegexOptions.IgnoreCase), ReplaceWith = "$1ouse"},
                 new ReplaceRule { Condition = new Regex("(seraph|cherub)im$", RegexOptions.IgnoreCase), ReplaceWith = "$1"},

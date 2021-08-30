@@ -37,13 +37,13 @@ namespace Pluralize.NET.Rules
                 new ReplaceRule { Condition = new Regex("^thou$",RegexOptions.IgnoreCase), ReplaceWith = "you" },
 
 
-                new ReplaceRule { Condition = new Regex("pox$",RegexOptions.IgnoreCase), ReplaceWith = "$0" },
-                new ReplaceRule { Condition = new Regex("o[iu]s$",RegexOptions.IgnoreCase), ReplaceWith = "$0" },
-                new ReplaceRule { Condition = new Regex("deer$",RegexOptions.IgnoreCase), ReplaceWith = "$0" },
-                new ReplaceRule { Condition = new Regex("fish$",RegexOptions.IgnoreCase), ReplaceWith = "$0" },
+                new ReplaceRule { Condition = new Regex("pox$",RegexOptions.IgnoreCase), ReplaceWith = "$0" }, // "chickpox", "smallpox"
+                new ReplaceRule { Condition = new Regex("o[iu]s$",RegexOptions.IgnoreCase), ReplaceWith = "$0" }, // "carnivorous"
+                new ReplaceRule { Condition = new Regex("deer$",RegexOptions.IgnoreCase), ReplaceWith = "$0" }, // "deer", "reindeer"
+                new ReplaceRule { Condition = new Regex("fish$",RegexOptions.IgnoreCase), ReplaceWith = "$0" }, // "fish", "blowfish", "angelfish"
                 new ReplaceRule { Condition = new Regex("sheep$",RegexOptions.IgnoreCase), ReplaceWith = "$0" },
                 new ReplaceRule { Condition = new Regex("measles$/",RegexOptions.IgnoreCase), ReplaceWith = "$0" },
-                new ReplaceRule { Condition = new Regex("[^aeiou]ese$",RegexOptions.IgnoreCase), ReplaceWith = "$0" }
+                new ReplaceRule { Condition = new Regex("[^aeiou]ese$",RegexOptions.IgnoreCase), ReplaceWith = "$0" } // "chinese", "japanese"
             };
         }
     }
